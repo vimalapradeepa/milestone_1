@@ -1,0 +1,1174 @@
+<!doctype html>
+<html class="no-js" lang="en" data-content_root="./">
+  <head><meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="Python Developer’s Guide" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://devguide.python.org/" />
+<meta property="og:site_name" content="Python Developer's Guide" />
+<meta property="og:description" content="This guide is a comprehensive resource for contributing to Python – for both new and experienced contributors. It is maintained by the same community that maintains Python. We welcome your contribu..." />
+<meta property="og:image" content="https://devguide.python.org/_static/og-image-200x200.png" />
+<meta property="og:image:alt" content="Python Developer's Guide" />
+<meta name="description" content="This guide is a comprehensive resource for contributing to Python – for both new and experienced contributors. It is maintained by the same community that maintains Python. We welcome your contribu..." />
+<meta property="og:image:width" content="200">
+<meta property="og:image:height" content="200">
+<meta name="theme-color" content="#3776ab">
+<link rel="index" title="Index" href="genindex/"><link rel="search" title="Search" href="search/"><link rel="next" title="Getting started" href="getting-started/">
+        <link rel="prefetch" href="_static/python-logo.svg" as="image">
+
+    <link rel="shortcut icon" href="_static/favicon.png"><!-- Generated with Sphinx 9.1.0 and Furo 2025.12.19 -->
+        <title>Python Developer’s Guide</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=d111a655" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?v=7bdb33bb" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/tabs.css?v=4c969af8" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?v=8dab3a3b" />
+    <link rel="stylesheet" type="text/css" href="_static/devguide_overrides.css?v=35f370c8" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #f2f2f2;
+  --color-code-foreground: #1e1e1e;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+      }
+    }
+  }
+</style><script async type="text/javascript" src="/_/static/javascript/readthedocs-addons.js"></script><meta name="readthedocs-project-slug" content="cpython-devguide" /><meta name="readthedocs-version-slug" content="latest" /><meta name="readthedocs-resolver-filename" content="/" /><meta name="readthedocs-http-status" content="200" /></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-with-moon" viewBox="0 0 24 24">
+    <title>Auto light/dark, in light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path style="opacity: 50%" d="M 5.411 14.504 C 5.471 14.504 5.532 14.504 5.591 14.504 C 3.639 16.319 4.383 19.569 6.931 20.352 C 7.693 20.586 8.512 20.551 9.25 20.252 C 8.023 23.207 4.056 23.725 2.11 21.184 C 0.166 18.642 1.702 14.949 4.874 14.536 C 5.051 14.512 5.231 14.5 5.411 14.5 L 5.411 14.504 Z"/>
+      <line x1="14.5" y1="3.25" x2="14.5" y2="1.25"/>
+      <line x1="14.5" y1="15.85" x2="14.5" y2="17.85"/>
+      <line x1="10.044" y1="5.094" x2="8.63" y2="3.68"/>
+      <line x1="19" y1="14.05" x2="20.414" y2="15.464"/>
+      <line x1="8.2" y1="9.55" x2="6.2" y2="9.55"/>
+      <line x1="20.8" y1="9.55" x2="22.8" y2="9.55"/>
+      <line x1="10.044" y1="14.006" x2="8.63" y2="15.42"/>
+      <line x1="19" y1="5.05" x2="20.414" y2="3.636"/>
+      <circle cx="14.5" cy="9.55" r="3.6"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon-with-sun" viewBox="0 0 24 24">
+    <title>Auto light/dark, in dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path d="M 8.282 7.007 C 8.385 7.007 8.494 7.007 8.595 7.007 C 5.18 10.184 6.481 15.869 10.942 17.24 C 12.275 17.648 13.706 17.589 15 17.066 C 12.851 22.236 5.91 23.143 2.505 18.696 C -0.897 14.249 1.791 7.786 7.342 7.063 C 7.652 7.021 7.965 7 8.282 7 L 8.282 7.007 Z"/>
+      <line style="opacity: 50%" x1="18" y1="3.705" x2="18" y2="2.5"/>
+      <line style="opacity: 50%" x1="18" y1="11.295" x2="18" y2="12.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="4.816" x2="14.464" y2="3.964"/>
+      <line style="opacity: 50%" x1="20.711" y1="10.212" x2="21.563" y2="11.063"/>
+      <line style="opacity: 50%" x1="14.205" y1="7.5" x2="13.001" y2="7.5"/>
+      <line style="opacity: 50%" x1="21.795" y1="7.5" x2="23" y2="7.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="10.184" x2="14.464" y2="11.036"/>
+      <line style="opacity: 50%" x1="20.711" y1="4.789" x2="21.563" y2="3.937"/>
+      <circle style="opacity: 50%" cx="18" cy="7.5" r="2.169"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-pencil" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-pencil-code">
+      <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
+      <path d="M13.5 6.5l4 4" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+  <symbol id="svg-eye" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-eye-code">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+      <path
+        d="M11.11 17.958c-3.209 -.307 -5.91 -2.293 -8.11 -5.958c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6c-.21 .352 -.427 .688 -.647 1.008" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle site navigation sidebar">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc" aria-label="Toggle table of contents sidebar">
+<label class="overlay sidebar-overlay" for="__navigation"></label>
+<label class="overlay toc-overlay" for="__toc"></label>
+
+<a class="skip-to-content muted-link" href="#furo-main-content">Skip to content</a>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <span class="icon"><svg><use href="#svg-menu"></use></svg></span>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="#"><div class="brand">Python Developer's Guide</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle" aria-label="Toggle Light / Dark / Auto color theme">
+          <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+          <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="#">
+  <div class="sidebar-logo-container">
+    <img class="sidebar-logo" src="_static/python-logo.svg" alt="Logo"/>
+  </div>
+  
+  <span class="sidebar-brand-text">Python Developer's Guide</span>
+  
+</a><form class="sidebar-search-container" method="get" action="search/" role="search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="getting-started/">Getting started</a><input aria-label="Toggle navigation of Getting started" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="getting-started/setup-building/">Setup and building</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting-started/fixing-issues/">Fixing “easy” issues (and beyond)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting-started/git-boot-camp/">Git bootcamp and cheat sheet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting-started/pull-request-lifecycle/">Lifecycle of a pull request</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting-started/getting-help/">Where to get help</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting-started/generative-ai/">Generative AI</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="developer-workflow/">Development workflow</a><input aria-label="Toggle navigation of Development workflow" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="developer-workflow/communication-channels/">Following Python’s development</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer-workflow/lang-changes/">Changing Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer-workflow/development-cycle/">Development cycle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer-workflow/stdlib/">Adding to the stdlib</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer-workflow/extension-modules/">Standard library extension modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer-workflow/c-api/">Changing Python’s C API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer-workflow/grammar/">Changing CPython’s grammar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer-workflow/porting/">Porting to a new platform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer-workflow/sbom/">Software Bill-of-Materials (SBOM)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer-workflow/psrt/">Python Security Response Team (PSRT)</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="triage/">Issues and triaging</a><input aria-label="Toggle navigation of Issues and triaging" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="triage/issue-tracker/">Issue tracker</a></li>
+<li class="toctree-l2"><a class="reference internal" href="triage/triaging/">Triaging an issue</a></li>
+<li class="toctree-l2"><a class="reference internal" href="triage/labels/">GitHub labels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="triage/github-bpo-faq/">GitHub issues for BPO users</a></li>
+<li class="toctree-l2"><a class="reference internal" href="triage/triage-team/">Triage Team</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="documentation/">Documentation</a><input aria-label="Toggle navigation of Documentation" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="documentation/start-documenting/">Getting started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="documentation/help-documenting/">Helping with documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="documentation/style-guide/">Style guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="documentation/markup/">reStructuredText markup</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="documentation/translations/">Translations</a><input aria-label="Toggle navigation of Translations" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="documentation/translations/translating/">Translating</a></li>
+<li class="toctree-l3"><a class="reference internal" href="documentation/translations/coordinating/">Coordinating</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="documentation/devguide/">Helping with the Developer’s Guide</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="testing/">Testing and buildbots</a><input aria-label="Toggle navigation of Testing and buildbots" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="testing/run-write-tests/">Running and writing tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="testing/silence-warnings/">Silence warnings from the test suite</a></li>
+<li class="toctree-l2"><a class="reference internal" href="testing/coverage/">Increase test coverage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="testing/buildbots/">Working with buildbots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="testing/new-buildbot-worker/">New buildbot workers</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="development-tools/">Development tools</a><input aria-label="Toggle navigation of Development tools" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="development-tools/clinic/">Argument Clinic</a><input aria-label="Toggle navigation of Argument Clinic" class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" role="switch" type="checkbox"/><label for="toctree-checkbox-8"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="development-tools/clinic/tutorial/">Tutorial</a></li>
+<li class="toctree-l3"><a class="reference internal" href="development-tools/clinic/howto/">How-to guides</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="development-tools/gdb/">GDB support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="development-tools/clang/">Dynamic analysis with Clang</a></li>
+<li class="toctree-l2"><a class="reference internal" href="development-tools/warnings/">Tools for tracking compiler warnings</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="core-team/">Core team</a><input aria-label="Toggle navigation of Core team" class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="core-team/responsibilities/">Responsibilities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="core-team/committing/">Accepting pull requests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="core-team/experts/">Experts index</a></li>
+<li class="toctree-l2"><a class="reference internal" href="core-team/team-log/">Team log</a></li>
+<li class="toctree-l2"><a class="reference internal" href="core-team/motivations/">Motivations and affiliations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="core-team/join-team/">How to join the core team</a></li>
+<li class="toctree-l2"><a class="reference internal" href="core-team/memorialization/">Memorialization</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="internals/">CPython’s internals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="versions/">Status of Python versions</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="contrib/">Python Contributor’s Guide (draft)</a><input aria-label="Toggle navigation of Python Contributor’s Guide (draft)" class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="contrib/contrib-plan/">[Plan for the Contributor’s Guide]</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contrib/intro/">Introduction</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="contrib/project/">The CPython project</a><input aria-label="Toggle navigation of The CPython project" class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" role="switch" type="checkbox"/><label for="toctree-checkbox-11"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="contrib/project/conduct/">Code of Conduct</a></li>
+<li class="toctree-l3"><a class="reference internal" href="contrib/project/roles/">Roles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="contrib/project/governance/">Governance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="contrib/project/generative-ai/">Generative AI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="contrib/project/github/">GitHub</a></li>
+<li class="toctree-l3"><a class="reference internal" href="contrib/project/directory-structure/">Directory structure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="contrib/project/channels/">Communication channels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="contrib/project/outreach/">Outreach</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="contrib/triage/">Issues and triaging</a><input aria-label="Toggle navigation of Issues and triaging" class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" role="switch" type="checkbox"/><label for="toctree-checkbox-12"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="contrib/triage/issue-tracker/">Issue tracker</a></li>
+<li class="toctree-l3"><a class="reference internal" href="contrib/triage/triaging/">Triaging an issue</a></li>
+<li class="toctree-l3"><a class="reference internal" href="contrib/triage/labels/">GitHub labels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="contrib/triage/reviewing/">Reviewing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="contrib/triage/triage-team/">Triage Team</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="contrib/doc/">Documentation contributions</a><input aria-label="Toggle navigation of Documentation contributions" class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" role="switch" type="checkbox"/><label for="toctree-checkbox-13"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="contrib/doc/start-documenting/">Getting started</a></li>
+<li class="toctree-l3"><a class="reference internal" href="contrib/doc/help-documenting/">Helping with documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="contrib/doc/style-guide/">Style guide</a></li>
+<li class="toctree-l3"><a class="reference internal" href="contrib/doc/markup/">reStructuredText markup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="contrib/doc/pull-request-lifecycle/">Pull request lifecycle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="contrib/doc/translating/">Translating</a></li>
+<li class="toctree-l3"><a class="reference internal" href="contrib/doc/devguide/">Helping with the Developer’s Guide</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="contrib/code/">Code contributions</a><input aria-label="Toggle navigation of Code contributions" class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" role="switch" type="checkbox"/><label for="toctree-checkbox-14"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="contrib/code/setup/">Setup and building</a></li>
+<li class="toctree-l3"><a class="reference internal" href="contrib/code/git/">Git tips</a></li>
+<li class="toctree-l3"><a class="reference internal" href="contrib/code/pull-request-lifecycle/">Pull request lifecycle</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="contrib/code/developer-workflow/">Development workflow</a><input aria-label="Toggle navigation of Development workflow" class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" role="switch" type="checkbox"/><label for="toctree-checkbox-15"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="developer-workflow/communication-channels/">Following Python’s development</a></li>
+<li class="toctree-l4"><a class="reference internal" href="developer-workflow/development-cycle/">Development cycle</a></li>
+<li class="toctree-l4"><a class="reference internal" href="developer-workflow/stdlib/">Adding to the stdlib</a></li>
+<li class="toctree-l4"><a class="reference internal" href="developer-workflow/extension-modules/">Standard library extension modules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="developer-workflow/c-api/">Changing Python’s C API</a></li>
+<li class="toctree-l4"><a class="reference internal" href="developer-workflow/lang-changes/">Changing Python</a></li>
+<li class="toctree-l4"><a class="reference internal" href="developer-workflow/grammar/">Changing CPython’s grammar</a></li>
+<li class="toctree-l4"><a class="reference internal" href="developer-workflow/porting/">Porting to a new platform</a></li>
+<li class="toctree-l4"><a class="reference internal" href="developer-workflow/sbom/">Software Bill-of-Materials (SBOM)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="developer-workflow/psrt/">Python Security Response Team (PSRT)</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="contrib/code/testing/">Testing and buildbots</a><input aria-label="Toggle navigation of Testing and buildbots" class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" role="switch" type="checkbox"/><label for="toctree-checkbox-16"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="testing/run-write-tests/">Running and writing tests</a></li>
+<li class="toctree-l4"><a class="reference internal" href="testing/silence-warnings/">Silence warnings from the test suite</a></li>
+<li class="toctree-l4"><a class="reference internal" href="testing/coverage/">Increase test coverage</a></li>
+<li class="toctree-l4"><a class="reference internal" href="testing/buildbots/">Working with buildbots</a></li>
+<li class="toctree-l4"><a class="reference internal" href="testing/new-buildbot-worker/">New buildbot workers</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="contrib/code/development-tools/">Development tools</a><input aria-label="Toggle navigation of Development tools" class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" role="switch" type="checkbox"/><label for="toctree-checkbox-17"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4 has-children"><a class="reference internal" href="development-tools/clinic/">Argument Clinic</a><input aria-label="Toggle navigation of Argument Clinic" class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" role="switch" type="checkbox"/><label for="toctree-checkbox-18"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l5"><a class="reference internal" href="development-tools/clinic/tutorial/">Tutorial</a></li>
+<li class="toctree-l5"><a class="reference internal" href="development-tools/clinic/howto/">How-to guides</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="development-tools/gdb/">GDB support</a></li>
+<li class="toctree-l4"><a class="reference internal" href="development-tools/clang/">Dynamic analysis with Clang</a></li>
+<li class="toctree-l4"><a class="reference internal" href="development-tools/warnings/">Tools for tracking compiler warnings</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="contrib/core-team/">Core team</a><input aria-label="Toggle navigation of Core team" class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" role="switch" type="checkbox"/><label for="toctree-checkbox-19"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="contrib/core-team/responsibilities/">Responsibilities</a></li>
+<li class="toctree-l3"><a class="reference internal" href="contrib/core-team/committing/">Accepting pull requests</a></li>
+<li class="toctree-l3"><a class="reference internal" href="contrib/core-team/experts/">Experts index</a></li>
+<li class="toctree-l3"><a class="reference internal" href="contrib/core-team/team-log/">Team log</a></li>
+<li class="toctree-l3"><a class="reference internal" href="contrib/core-team/motivations/">Motivations and affiliations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="contrib/core-team/join-team/">How to join the core team</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="contrib/user-success/">Accessibility, design, and user success</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contrib/security/">Security and infrastructure contributions</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="contrib/workflows/">Workflows</a><input aria-label="Toggle navigation of Workflows" class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" role="switch" type="checkbox"/><label for="toctree-checkbox-20"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="contrib/workflows/install-git/">Install Git</a></li>
+<li class="toctree-l3"><a class="reference internal" href="contrib/workflows/get-source/">Get the source code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="contrib/workflows/install-dependencies/">Install Dependencies</a></li>
+<li class="toctree-l3"><a class="reference internal" href="contrib/workflows/compile/">Compile and build</a></li>
+<li class="toctree-l3"><a class="reference internal" href="contrib/workflows/regenerate/">Regenerating auto-created files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="contrib/workflows/troubleshooting/">Install Git</a></li>
+<li class="toctree-l3"><a class="reference internal" href="contrib/workflows/codespaces/">Using GitHub Codespaces</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          <div class="view-this-page">
+  <a class="muted-link" href="https://github.com/python/devguide/blob/main/index.rst?plain=true" title="View this page">
+    <svg><use href="#svg-eye"></use></svg>
+    <span class="visually-hidden">View this page</span>
+  </a>
+</div><div class="edit-this-page">
+  <a class="muted-link" href="https://github.com/python/devguide/edit/main/index.rst" rel="edit" title="Edit this page">
+    <svg><use href="#svg-pencil"></use></svg>
+    <span class="visually-hidden">Edit this page</span>
+  </a>
+</div><div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle" aria-label="Toggle Light / Dark / Auto color theme">
+              <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+              <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
+          </label>
+        </div>
+        <article role="main" id="furo-main-content">
+          <section id="python-developer-s-guide">
+<span id="devguide-main"></span><h1>Python Developer’s Guide<a class="headerlink" href="#python-developer-s-guide" title="Link to this heading">¶</a></h1>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  activateTab(getOS());
+});
+</script><p>This guide is a comprehensive resource for <a class="reference internal" href="#contributing"><span class="std std-ref">contributing</span></a>
+to <a class="reference external" href="https://www.python.org/">Python</a> – for both new and experienced contributors. It is
+<a class="reference internal" href="documentation/devguide/#devguide"><span class="std std-ref">maintained</span></a> by the same
+community that maintains Python.  We welcome your contributions to Python!</p>
+<section id="quick-reference">
+<span id="id1"></span><h2>Quick reference<a class="headerlink" href="#quick-reference" title="Link to this heading">¶</a></h2>
+<p>Here are the basic steps needed to get set up and contribute a pull request.
+This is meant as a checklist, once you know the basics. For complete
+instructions please see the <a class="reference internal" href="getting-started/setup-building/#setup"><span class="std std-ref">setup guide</span></a>.</p>
+<ol class="arabic">
+<li><p>Install and set up <a class="reference internal" href="getting-started/setup-building/#vcsetup"><span class="std std-ref">Git</span></a> and other dependencies
+(see the <a class="reference internal" href="getting-started/setup-building/#setup"><span class="std std-ref">Git Setup</span></a> page for detailed information).</p></li>
+<li><p>Fork <a class="reference external" href="https://github.com/python/cpython">the CPython repository</a>
+to your GitHub account and <a class="reference internal" href="getting-started/setup-building/#checkout"><span class="std std-ref">get the source code</span></a> using:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/&lt;your_username&gt;/cpython
+<span class="nb">cd</span><span class="w"> </span>cpython
+</pre></div>
+</div>
+</li>
+<li><p>Build Python:</p>
+<div class="tab-set docutils container">
+<input checked="True" class="tab-input" id="tab-set--0-input--1" name="tab-set--0" type="radio" /><label class="tab-label" for="tab-set--0-input--1">Unix</label><div class="tab-content docutils container">
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>./configure<span class="w"> </span>--with-pydebug<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>make<span class="w"> </span>-j<span class="w"> </span><span class="k">$(</span>nproc<span class="k">)</span>
+</pre></div>
+</div>
+</div>
+<input class="tab-input" id="tab-set--0-input--2" name="tab-set--0" type="radio" /><label class="tab-label" for="tab-set--0-input--2">macOS</label><div class="tab-content docutils container">
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>./configure<span class="w"> </span>--with-pydebug<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>make<span class="w"> </span>-j8
+</pre></div>
+</div>
+</div>
+<input class="tab-input" id="tab-set--0-input--3" name="tab-set--0" type="radio" /><label class="tab-label" for="tab-set--0-input--3">Windows</label><div class="tab-content docutils container">
+<div class="highlight-dosbatch notranslate"><div class="highlight"><pre><span></span>PCbuild\build.bat -e -d
+</pre></div>
+</div>
+</div>
+</div>
+<p>See also <a class="reference internal" href="getting-started/setup-building/#compiling"><span class="std std-ref">more detailed instructions</span></a>,
+<a class="reference internal" href="getting-started/setup-building/#build-dependencies"><span class="std std-ref">how to install and build dependencies</span></a>,
+and the platform-specific pages for <a class="reference internal" href="getting-started/setup-building/#unix-compiling"><span class="std std-ref">Unix</span></a>,
+<a class="reference internal" href="getting-started/setup-building/#macos"><span class="std std-ref">macOS</span></a>, and <a class="reference internal" href="getting-started/setup-building/#windows-compiling"><span class="std std-ref">Windows</span></a>.</p>
+</li>
+<li><p><a class="reference internal" href="testing/run-write-tests/#runtests"><span class="std std-ref">Run the tests</span></a>:</p>
+<div class="tab-set docutils container">
+<input checked="True" class="tab-input" id="tab-set--1-input--1" name="tab-set--1" type="radio" /><label class="tab-label" for="tab-set--1-input--1">Unix</label><div class="tab-content docutils container">
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>./python<span class="w"> </span>-m<span class="w"> </span><span class="nb">test</span><span class="w"> </span>-j3
+</pre></div>
+</div>
+</div>
+<input class="tab-input" id="tab-set--1-input--2" name="tab-set--1" type="radio" /><label class="tab-label" for="tab-set--1-input--2">macOS</label><div class="tab-content docutils container">
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>./python.exe<span class="w"> </span>-m<span class="w"> </span><span class="nb">test</span><span class="w"> </span>-j8
+</pre></div>
+</div>
+<p>Note: <a class="reference internal" href="getting-started/setup-building/#mac-python-exe"><span class="std std-ref">Most</span></a> macOS systems use
+<code class="file docutils literal notranslate"><span class="pre">./python.exe</span></code> in order to avoid filename conflicts with
+the <code class="docutils literal notranslate"><span class="pre">Python</span></code> directory.</p>
+</div>
+<input class="tab-input" id="tab-set--1-input--3" name="tab-set--1" type="radio" /><label class="tab-label" for="tab-set--1-input--3">Windows</label><div class="tab-content docutils container">
+<div class="highlight-dosbatch notranslate"><div class="highlight"><pre><span></span>.\python.bat -m test -j3
+</pre></div>
+</div>
+</div>
+</div>
+</li>
+<li><p>Create a new branch where your work for the issue will go, for example:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>checkout<span class="w"> </span>-b<span class="w"> </span>fix-issue-12345<span class="w"> </span>main
+</pre></div>
+</div>
+<p>If an issue does not already exist, please <a class="reference external" href="https://github.com/python/cpython/issues">create it</a>.  Trivial issues (for example, typo fixes) do
+not require any issue to be created.</p>
+</li>
+<li><p>Once you fixed the issue, run the tests, and the patchcheck:</p>
+<div class="tab-set docutils container">
+<input checked="True" class="tab-input" id="tab-set--2-input--1" name="tab-set--2" type="radio" /><label class="tab-label" for="tab-set--2-input--1">Unix</label><div class="tab-content docutils container">
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>make<span class="w"> </span>patchcheck
+</pre></div>
+</div>
+</div>
+<input class="tab-input" id="tab-set--2-input--2" name="tab-set--2" type="radio" /><label class="tab-label" for="tab-set--2-input--2">macOS</label><div class="tab-content docutils container">
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>make<span class="w"> </span>patchcheck
+</pre></div>
+</div>
+</div>
+<input class="tab-input" id="tab-set--2-input--3" name="tab-set--2" type="radio" /><label class="tab-label" for="tab-set--2-input--3">Windows</label><div class="tab-content docutils container">
+<div class="highlight-dosbatch notranslate"><div class="highlight"><pre><span></span>.\python.bat Tools\patchcheck\patchcheck.py
+</pre></div>
+</div>
+</div>
+</div>
+<p>If everything is ok, commit.</p>
+</li>
+<li><p>Push the branch on your fork on GitHub and <a class="reference internal" href="getting-started/pull-request-lifecycle/#pullrequest"><span class="std std-ref">create a pull request</span></a>.  Include the issue number using <code class="docutils literal notranslate"><span class="pre">gh-NNNN</span></code> in the
+pull request description.  For example:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>gh-12345: Fix some bug in spam module
+</pre></div>
+</div>
+</li>
+<li><p>Add a News entry into the <code class="docutils literal notranslate"><span class="pre">Misc/NEWS.d</span></code> directory as individual file. The
+news entry can be created by using <a class="reference external" href="https://blurb-it.herokuapp.com/">blurb-it</a>,
+or the <a class="extlink-pypi reference external" href="https://pypi.org/project/blurb/">blurb</a> tool and its <code class="docutils literal notranslate"><span class="pre">blurb</span> <span class="pre">add</span></code>
+command. Please read more about <code class="docutils literal notranslate"><span class="pre">blurb</span></code> in its
+<a class="reference external" href="https://github.com/python/blurb">repository</a>.</p></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>First time contributors will need to sign the Contributor Licensing
+Agreement (CLA) as described in the <a class="reference internal" href="getting-started/pull-request-lifecycle/#cla"><span class="std std-ref">Licensing</span></a> section of
+this guide.</p>
+</div>
+</section>
+<section id="quick-links">
+<h2>Quick links<a class="headerlink" href="#quick-links" title="Link to this heading">¶</a></h2>
+<p>Here are some links that you probably will reference frequently while
+contributing to Python:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/python/cpython/issues">Issue tracker</a></p></li>
+<li><p><a class="reference external" href="https://www.python.org/dev/buildbot/">Buildbot status</a></p></li>
+<li><p><a class="reference internal" href="getting-started/getting-help/#help"><span class="std std-ref">Where to get help</span></a></p></li>
+<li><p><a class="reference external" href="https://peps.python.org/">PEPs</a> (Python Enhancement Proposals)</p></li>
+<li><p><a class="reference internal" href="getting-started/git-boot-camp/#gitbootcamp"><span class="std std-ref">Git bootcamp and cheat sheet</span></a></p></li>
+</ul>
+</section>
+<section id="contributing">
+<span id="id2"></span><h2>Contributing<a class="headerlink" href="#contributing" title="Link to this heading">¶</a></h2>
+<p>We encourage everyone to contribute to Python and that’s why we have put up this
+developer’s guide.  If you still have questions after reviewing the material in
+this guide, then the <a class="reference external" href="https://www.python.org/dev/core-mentorship/">Core Python Mentorship</a> group is available to help guide new
+contributors through the process.</p>
+<p>A number of individuals from the Python community have contributed to a series
+of excellent guides at <a class="reference external" href="https://opensource.guide/">Open Source Guides</a>.</p>
+<p>Core developers and contributors alike will find the following guides useful:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://opensource.guide/how-to-contribute/">How to Contribute to Open Source</a></p></li>
+<li><p><a class="reference external" href="https://opensource.guide/building-community/">Building Welcoming Communities</a></p></li>
+</ul>
+<p>Guide for contributing to Python:</p>
+<div class="table-wrapper docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Contributors</p></th>
+<th class="head"><p>Documentarians</p></th>
+<th class="head"><p>Triagers</p></th>
+<th class="head"><p>Core team</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference internal" href="getting-started/setup-building/#setup"><span class="std std-ref">Setup and building</span></a></p></td>
+<td><p><a class="reference internal" href="documentation/help-documenting/#docquality"><span class="std std-ref">Helping with documentation</span></a></p></td>
+<td><p><a class="reference internal" href="triage/issue-tracker/#tracker"><span class="std std-ref">Issue tracker</span></a></p></td>
+<td><p><a class="reference internal" href="core-team/responsibilities/#responsibilities"><span class="std std-ref">Responsibilities</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="getting-started/getting-help/#help"><span class="std std-ref">Where to get help</span></a></p></td>
+<td><p><a class="reference internal" href="documentation/start-documenting/#documenting"><span class="std std-ref">Getting started</span></a></p></td>
+<td><p><a class="reference internal" href="triage/triaging/#triaging"><span class="std std-ref">Triaging an issue</span></a></p></td>
+<td><p><a class="reference internal" href="core-team/team-log/#developers"><span class="std std-ref">Team log</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="getting-started/pull-request-lifecycle/#pullrequest"><span class="std std-ref">Lifecycle of a pull request</span></a></p></td>
+<td><p><a class="reference internal" href="documentation/style-guide/#style-guide"><span class="std std-ref">Style guide</span></a></p></td>
+<td><p><a class="reference internal" href="triage/triaging/#helptriage"><span class="std std-ref">Helping triage issues</span></a></p></td>
+<td><p><a class="reference internal" href="core-team/committing/#committing"><span class="std std-ref">Accepting pull requests</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="testing/run-write-tests/#runtests"><span class="std std-ref">Running and writing tests</span></a></p></td>
+<td><p><a class="reference internal" href="documentation/markup/#rst-primer"><span class="std std-ref">reStructuredText primer</span></a></p></td>
+<td><p><a class="reference internal" href="core-team/experts/#experts"><span class="std std-ref">Experts index</span></a></p></td>
+<td><p><a class="reference internal" href="developer-workflow/development-cycle/#devcycle"><span class="std std-ref">Development cycle</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="getting-started/fixing-issues/#fixingissues"><span class="std std-ref">Fixing “easy” issues (and beyond)</span></a></p></td>
+<td><p><a class="reference internal" href="documentation/translations/translating/#translating"><span class="std std-ref">Translating</span></a></p></td>
+<td><p><a class="reference internal" href="triage/labels/#labels"><span class="std std-ref">GitHub labels</span></a></p></td>
+<td><p><a class="reference internal" href="core-team/motivations/#motivations"><span class="std std-ref">Motivations and affiliations</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="developer-workflow/communication-channels/#communication"><span class="std std-ref">Following Python’s development</span></a></p></td>
+<td><p><a class="reference internal" href="documentation/devguide/#devguide"><span class="std std-ref">Helping with the Developer’s Guide</span></a></p></td>
+<td><p><a class="reference internal" href="triage/github-bpo-faq/#gh-faq"><span class="std std-ref">GitHub issues for BPO users</span></a></p></td>
+<td><p><a class="reference internal" href="core-team/experts/#experts"><span class="std std-ref">Experts index</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="getting-started/git-boot-camp/#gitbootcamp"><span class="std std-ref">Git bootcamp and cheat sheet</span></a></p></td>
+<td></td>
+<td><p><a class="reference internal" href="triage/triage-team/#triage-team"><span class="std std-ref">Triage Team</span></a></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="developer-workflow/development-cycle/#devcycle"><span class="std std-ref">Development cycle</span></a></p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>We <strong>recommend</strong> that the documents in this guide be read as needed. You
+can stop where you feel comfortable and begin contributing immediately without
+reading and understanding these documents all at once.  If you do choose to skip
+around within the documentation, be aware that it is written assuming preceding
+documentation has been read so you may find it necessary to backtrack to fill in
+missing concepts and terminology.</p>
+</section>
+<section id="proposing-changes-to-python-itself">
+<h2>Proposing changes to Python itself<a class="headerlink" href="#proposing-changes-to-python-itself" title="Link to this heading">¶</a></h2>
+<p>Improving Python’s code, documentation and tests are ongoing tasks that are
+never going to be “finished”, as Python operates as part of an ever-evolving
+system of technology.  An even more challenging ongoing task than these
+necessary maintenance activities is finding ways to make Python, in the form of
+the standard library and the language definition, an even better tool in a
+developer’s toolkit.</p>
+<p>While these kinds of change are much rarer than those described above, they do
+happen and that process is also described as part of this guide:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="developer-workflow/stdlib/#stdlibchanges"><span class="std std-ref">Adding to the stdlib</span></a></p></li>
+<li><p><a class="reference internal" href="developer-workflow/lang-changes/#langchanges"><span class="std std-ref">Changing Python</span></a></p></li>
+</ul>
+</section>
+<section id="other-interpreter-implementations">
+<h2>Other interpreter implementations<a class="headerlink" href="#other-interpreter-implementations" title="Link to this heading">¶</a></h2>
+<p>This guide is specifically for contributing to the Python reference interpreter,
+also known as CPython (while most of the standard library is written in Python,
+the interpreter core is written in C and integrates most easily with the C and
+C++ ecosystems).</p>
+<p>There are other Python implementations, each with a different focus.  Like
+CPython, they always have more things they would like to do than they have
+developers to work on them.  Some major examples that may be of interest are:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://pypy.org">PyPy</a>: A Python interpreter focused on high speed (JIT-compiled) operation
+on major platforms.</p></li>
+<li><p><a class="reference external" href="https://www.graalvm.org/python/">GraalPy</a>: A Python interpreter which has first-class support for
+embedding in Java, built on GraalVM.</p></li>
+<li><p><a class="reference external" href="https://www.jython.org/">Jython</a>: A Python interpreter focused on good integration with the Java
+Virtual Machine (JVM) environment.</p></li>
+<li><p><a class="reference external" href="https://ironpython.net/">IronPython</a>: A Python interpreter focused on good integration with the
+Common Language Runtime (CLR) provided by .NET and Mono.</p></li>
+<li><p><a class="reference external" href="https://github.com/stackless-dev/stackless/wiki/">Stackless</a>: A Python interpreter focused on providing lightweight
+microthreads while remaining largely compatible with CPython specific
+extension modules.</p></li>
+<li><p><a class="reference external" href="https://micropython.org/">MicroPython</a>: A tiny Python interpreter with small subset of the Python
+standard library that is optimised to run on microcontrollers and in
+constrained environments.</p></li>
+<li><p><a class="reference external" href="https://circuitpython.org/">CircuitPython</a>: A fork of MicroPython designed to simplify experimenting
+and learning to code on low-cost microcontroller boards.</p></li>
+</ul>
+</section>
+<section id="key-resources">
+<h2>Key resources<a class="headerlink" href="#key-resources" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>Coding style guides</p>
+<ul>
+<li><p><span class="target" id="index-0"></span><a class="pep reference external" href="https://peps.python.org/pep-0007/"><strong>PEP 7</strong></a> (Style Guide for C Code)</p></li>
+<li><p><span class="target" id="index-1"></span><a class="pep reference external" href="https://peps.python.org/pep-0008/"><strong>PEP 8</strong></a> (Style Guide for Python Code)</p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="https://github.com/python/cpython/issues">Issue tracker</a></p>
+<ul>
+<li><p><a class="reference internal" href="core-team/experts/#experts"><span class="std std-ref">Experts index</span></a></p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="https://www.python.org/dev/buildbot/">Buildbot status</a></p></li>
+<li><p>Source code</p>
+<ul>
+<li><p><a class="reference external" href="https://github.com/python/cpython/">Browse online</a></p></li>
+<li><p><a class="reference external" href="https://github.com/python/cpython/archive/main.zip">Snapshot of the *main* branch</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="https://peps.python.org/">PEPs</a> (Python Enhancement Proposals)</p></li>
+<li><p><a class="reference internal" href="getting-started/getting-help/#help"><span class="std std-ref">Where to get help</span></a></p></li>
+<li><p><a class="reference internal" href="core-team/team-log/#developers"><span class="std std-ref">Team log</span></a></p></li>
+</ul>
+</section>
+<section id="additional-resources">
+<span id="resources"></span><h2>Additional resources<a class="headerlink" href="#additional-resources" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>Anyone can clone the sources for this guide.  See <a class="reference internal" href="documentation/devguide/#devguide"><span class="std std-ref">Helping with the Developer’s Guide</span></a>.</p></li>
+<li><p>Help with …</p>
+<ul>
+<li><p><a class="reference internal" href="internals/#internals"><span class="std std-ref">CPython’s internals</span></a></p></li>
+<li><p><a class="reference internal" href="developer-workflow/grammar/#grammar"><span class="std std-ref">Changing CPython’s grammar</span></a></p></li>
+</ul>
+</li>
+<li><p>Tool support</p>
+<ul>
+<li><p><a class="reference internal" href="development-tools/gdb/#gdb"><span class="std std-ref">GDB support</span></a></p></li>
+<li><p><a class="reference internal" href="development-tools/clang/#clang"><span class="std std-ref">Dynamic analysis with Clang</span></a></p></li>
+<li><p>Various tools with configuration files as found in the <a class="reference external" href="https://github.com/python/cpython/tree/main/Misc">Misc directory</a></p></li>
+<li><p>Information about editors and their configurations can be found in the
+<a class="reference external" href="https://wiki.python.org/moin/PythonEditors">wiki</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="https://pythondotorg.readthedocs.io/">python.org maintenance</a></p></li>
+<li><p><a class="reference internal" href="search/"><span class="std std-ref">Search this guide</span></a></p></li>
+</ul>
+</section>
+<section id="code-of-conduct">
+<h2>Code of conduct<a class="headerlink" href="#code-of-conduct" title="Link to this heading">¶</a></h2>
+<p>Please note that all interactions on
+<a class="reference external" href="https://www.python.org/psf-landing/">Python Software Foundation</a>-supported
+infrastructure is <a class="reference external" href="https://www.python.org/psf/records/board/minutes/2014-01-06/#management-of-the-psfs-web-properties">covered</a>
+by the <a class="reference external" href="https://policies.python.org/python.org/code-of-conduct/">PSF Code of Conduct</a>,
+which includes all infrastructure used in the development of Python itself
+(for example, mailing lists, issue trackers, GitHub, etc.).
+In general this means everyone is expected to be open, considerate, and
+respectful of others no matter what their position is within the project.</p>
+</section>
+<section id="status-of-python-branches">
+<h2>Status of Python branches<a class="headerlink" href="#status-of-python-branches" title="Link to this heading">¶</a></h2>
+<p>Moved to <a class="reference internal" href="versions/#versions"><span class="std std-ref">Status of Python versions</span></a></p>
+</section>
+<section id="full-table-of-contents">
+<span id="contents"></span><h2>Full table of contents<a class="headerlink" href="#full-table-of-contents" title="Link to this heading">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="getting-started/">Getting started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="getting-started/setup-building/">Setup and building</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="getting-started/setup-building/#install-git">Install Git</a></li>
+<li class="toctree-l3"><a class="reference internal" href="getting-started/setup-building/#get-the-source-code">Get the source code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="getting-started/setup-building/#compile-and-build">Compile and build</a></li>
+<li class="toctree-l3"><a class="reference internal" href="getting-started/setup-building/#install-dependencies">Install dependencies</a></li>
+<li class="toctree-l3"><a class="reference internal" href="getting-started/setup-building/#regenerate-configure">Regenerate <code class="docutils literal notranslate"><span class="pre">configure</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="getting-started/setup-building/#regenerate-the-abi-dump">Regenerate the ABI dump</a></li>
+<li class="toctree-l3"><a class="reference internal" href="getting-started/setup-building/#troubleshoot-the-build">Troubleshoot the build</a></li>
+<li class="toctree-l3"><a class="reference internal" href="getting-started/setup-building/#editors-and-tools">Editors and tools</a></li>
+<li class="toctree-l3"><a class="reference internal" href="getting-started/setup-building/#directory-structure">Directory structure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="getting-started/setup-building/#using-a-container">Using a container</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="getting-started/fixing-issues/">Fixing “easy” issues (and beyond)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting-started/git-boot-camp/">Git bootcamp and cheat sheet</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="getting-started/git-boot-camp/#forking-cpython-github-repository">Forking CPython GitHub repository</a></li>
+<li class="toctree-l3"><a class="reference internal" href="getting-started/git-boot-camp/#cloning-a-forked-cpython-repository">Cloning a forked CPython repository</a></li>
+<li class="toctree-l3"><a class="reference internal" href="getting-started/git-boot-camp/#configure-the-remotes">Configure the remotes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="getting-started/git-boot-camp/#listing-the-remote-repositories">Listing the remote repositories</a></li>
+<li class="toctree-l3"><a class="reference internal" href="getting-started/git-boot-camp/#setting-up-your-name-and-email-address">Setting up your name and email address</a></li>
+<li class="toctree-l3"><a class="reference internal" href="getting-started/git-boot-camp/#enabling-autocrlf-on-windows">Enabling <code class="docutils literal notranslate"><span class="pre">autocrlf</span></code> on Windows</a></li>
+<li class="toctree-l3"><a class="reference internal" href="getting-started/git-boot-camp/#creating-and-switching-branches">Creating and switching branches</a></li>
+<li class="toctree-l3"><a class="reference internal" href="getting-started/git-boot-camp/#deleting-branches">Deleting branches</a></li>
+<li class="toctree-l3"><a class="reference internal" href="getting-started/git-boot-camp/#renaming-branch">Renaming branch</a></li>
+<li class="toctree-l3"><a class="reference internal" href="getting-started/git-boot-camp/#staging-and-committing-files">Staging and committing files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="getting-started/git-boot-camp/#reverting-changes">Reverting changes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="getting-started/git-boot-camp/#stashing-changes">Stashing changes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="getting-started/git-boot-camp/#comparing-changes">Comparing changes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="getting-started/git-boot-camp/#pushing-changes">Pushing changes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="getting-started/git-boot-camp/#creating-a-pull-request">Creating a pull request</a></li>
+<li class="toctree-l3"><a class="reference internal" href="getting-started/git-boot-camp/#linking-to-issues-and-pull-requests">Linking to issues and pull requests</a></li>
+<li class="toctree-l3"><a class="reference internal" href="getting-started/git-boot-camp/#updating-your-cpython-fork">Updating your CPython fork</a></li>
+<li class="toctree-l3"><a class="reference internal" href="getting-started/git-boot-camp/#applying-a-patch-to-git">Applying a patch to Git</a></li>
+<li class="toctree-l3"><a class="reference internal" href="getting-started/git-boot-camp/#checking-out-others-pull-requests">Checking out others’ pull requests</a></li>
+<li class="toctree-l3"><a class="reference internal" href="getting-started/git-boot-camp/#accepting-and-merging-a-pull-request">Accepting and merging a pull request</a></li>
+<li class="toctree-l3"><a class="reference internal" href="getting-started/git-boot-camp/#cancelling-an-automatic-merge">Cancelling an automatic merge</a></li>
+<li class="toctree-l3"><a class="reference internal" href="getting-started/git-boot-camp/#backporting-merged-changes">Backporting merged changes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="getting-started/git-boot-camp/#editing-a-pull-request-prior-to-merging">Editing a pull request prior to merging</a></li>
+<li class="toctree-l3"><a class="reference internal" href="getting-started/git-boot-camp/#github-cli">GitHub CLI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="getting-started/git-boot-camp/#git-worktree">Git worktree</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="getting-started/pull-request-lifecycle/">Lifecycle of a pull request</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="getting-started/pull-request-lifecycle/#introduction">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="getting-started/pull-request-lifecycle/#quick-guide">Quick guide</a></li>
+<li class="toctree-l3"><a class="reference internal" href="getting-started/pull-request-lifecycle/#step-by-step-guide">Step-by-step guide</a></li>
+<li class="toctree-l3"><a class="reference internal" href="getting-started/pull-request-lifecycle/#making-good-prs">Making good PRs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="getting-started/pull-request-lifecycle/#copyrights">Copyrights</a></li>
+<li class="toctree-l3"><a class="reference internal" href="getting-started/pull-request-lifecycle/#patchcheck"><code class="docutils literal notranslate"><span class="pre">patchcheck</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="getting-started/pull-request-lifecycle/#making-good-commits">Making good commits</a></li>
+<li class="toctree-l3"><a class="reference internal" href="getting-started/pull-request-lifecycle/#licensing">Licensing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="getting-started/pull-request-lifecycle/#submitting">Submitting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="getting-started/pull-request-lifecycle/#converting-an-existing-patch-from-b-p-o-to-github">Converting an existing patch from b.p.o to GitHub</a></li>
+<li class="toctree-l3"><a class="reference internal" href="getting-started/pull-request-lifecycle/#reviewing">Reviewing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="getting-started/pull-request-lifecycle/#keeping-continuous-integration-green">Keeping continuous integration green</a></li>
+<li class="toctree-l3"><a class="reference internal" href="getting-started/pull-request-lifecycle/#update-branch-button"><span class="guilabel">Update branch</span> button</a></li>
+<li class="toctree-l3"><a class="reference internal" href="getting-started/pull-request-lifecycle/#committing-rejecting">Committing/rejecting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="getting-started/pull-request-lifecycle/#crediting">Crediting</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="getting-started/getting-help/">Where to get help</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="getting-started/getting-help/#discourse">Discourse</a></li>
+<li class="toctree-l3"><a class="reference internal" href="getting-started/getting-help/#ask-python-dev">Ask #python-dev</a></li>
+<li class="toctree-l3"><a class="reference internal" href="getting-started/getting-help/#core-mentorship">Core mentorship</a></li>
+<li class="toctree-l3"><a class="reference internal" href="getting-started/getting-help/#file-a-bug">File a bug</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="getting-started/generative-ai/">Generative AI</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="getting-started/generative-ai/#acceptable-uses">Acceptable uses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="getting-started/generative-ai/#unacceptable-uses">Unacceptable uses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="getting-started/generative-ai/#considerations-for-success">Considerations for success</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="developer-workflow/">Development workflow</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="developer-workflow/communication-channels/">Following Python’s development</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="developer-workflow/communication-channels/#standards-of-behaviour-in-these-communication-channels">Standards of behaviour in these communication channels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="developer-workflow/communication-channels/#mailing-lists">Mailing lists</a></li>
+<li class="toctree-l3"><a class="reference internal" href="developer-workflow/communication-channels/#discourse-discuss-python-org-web-forum">Discourse (discuss.python.org web forum)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="developer-workflow/communication-channels/#discord-private-chat-server">Discord (private chat server)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="developer-workflow/communication-channels/#irc">IRC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="developer-workflow/communication-channels/#blogs">Blogs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="developer-workflow/communication-channels/#setting-expectations-for-open-source-participation">Setting expectations for open source participation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="developer-workflow/communication-channels/#additional-repositories">Additional repositories</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="developer-workflow/lang-changes/">Changing Python</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="developer-workflow/lang-changes/#considerations">Considerations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="developer-workflow/lang-changes/#suggesting-new-features-and-language-changes">Suggesting new features and language changes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="developer-workflow/lang-changes/#pep-process">PEP process</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="developer-workflow/development-cycle/">Development cycle</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="developer-workflow/development-cycle/#branches">Branches</a></li>
+<li class="toctree-l3"><a class="reference internal" href="developer-workflow/development-cycle/#stages">Stages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="developer-workflow/development-cycle/#repository-administration">Repository administration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="developer-workflow/development-cycle/#governance">Governance</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="developer-workflow/stdlib/">Adding to the stdlib</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="developer-workflow/stdlib/#adding-to-a-pre-existing-module">Adding to a pre-existing module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="developer-workflow/stdlib/#adding-a-new-module">Adding a new module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="developer-workflow/stdlib/#adding-a-new-environment-variable">Adding a new environment variable</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="developer-workflow/extension-modules/">Standard library extension modules</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="developer-workflow/extension-modules/#classifying-extension-modules">Classifying extension modules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="developer-workflow/extension-modules/#adding-an-extension-module-to-cpython">Adding an extension module to CPython</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="developer-workflow/c-api/">Changing Python’s C API</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="developer-workflow/c-api/#the-internal-api">The internal API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="developer-workflow/c-api/#public-c-api">Public C API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="developer-workflow/c-api/#unstable-c-api">Unstable C API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="developer-workflow/c-api/#limited-api">Limited API</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="developer-workflow/grammar/">Changing CPython’s grammar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer-workflow/porting/">Porting to a new platform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer-workflow/sbom/">Software Bill-of-Materials (SBOM)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="developer-workflow/sbom/#updating-a-dependency">Updating a dependency</a></li>
+<li class="toctree-l3"><a class="reference internal" href="developer-workflow/sbom/#adding-a-new-dependency">Adding a new dependency</a></li>
+<li class="toctree-l3"><a class="reference internal" href="developer-workflow/sbom/#removing-a-dependency">Removing a dependency</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="developer-workflow/psrt/">Python Security Response Team (PSRT)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="developer-workflow/psrt/#vulnerability-report-triage">Vulnerability report triage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="developer-workflow/psrt/#coordinating-a-vulnerability-report">Coordinating a vulnerability report</a></li>
+<li class="toctree-l3"><a class="reference internal" href="developer-workflow/psrt/#handling-code-signing-certificate-reports">Handling code signing certificate reports</a></li>
+<li class="toctree-l3"><a class="reference internal" href="developer-workflow/psrt/#template-responses">Template responses</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="triage/">Issues and triaging</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="triage/issue-tracker/">Issue tracker</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="triage/issue-tracker/#using-the-issue-tracker">Using the issue tracker</a></li>
+<li class="toctree-l3"><a class="reference internal" href="triage/issue-tracker/#disagreement-with-a-resolution-on-the-issue-tracker">Disagreement with a resolution on the issue tracker</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="triage/triaging/">Triaging an issue</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="triage/triaging/#checklist-for-triaging">Checklist for triaging</a></li>
+<li class="toctree-l3"><a class="reference internal" href="triage/triaging/#helping-triage-issues">Helping triage issues</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="triage/labels/">GitHub labels</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="triage/labels/#type-labels">Type labels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="triage/labels/#component-labels">Component labels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="triage/labels/#os-labels">OS labels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="triage/labels/#topic-labels">Topic labels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="triage/labels/#version-labels">Version labels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="triage/labels/#other-labels">Other labels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="triage/labels/#labels-specific-to-prs">Labels specific to PRs</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="triage/github-bpo-faq/">GitHub issues for BPO users</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="triage/github-bpo-faq/#how-to-format-my-comments-nicely">How to format my comments nicely?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="triage/github-bpo-faq/#how-to-attach-files-to-an-issue">How to attach files to an issue?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="triage/github-bpo-faq/#how-to-link-to-file-paths-in-the-repository-when-writing-comments">How to link to file paths in the repository when writing comments?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="triage/github-bpo-faq/#how-to-do-advanced-searches">How to do advanced searches?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="triage/github-bpo-faq/#where-is-the-nosy-list">Where is the “nosy list”?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="triage/github-bpo-faq/#how-to-add-issue-dependencies">How to add issue dependencies?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="triage/github-bpo-faq/#what-on-earth-is-a-mannequin">What on earth is a “mannequin”?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="triage/github-bpo-faq/#where-did-the-resolution-field-go">Where did the “resolution” field go?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="triage/github-bpo-faq/#where-did-the-low-high-and-critical-priorities-go">Where did the “low”, “high”, and “critical” priorities go?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="triage/github-bpo-faq/#how-to-find-a-random-issue">How to find a random issue?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="triage/github-bpo-faq/#where-are-regression-labels">Where are regression labels?</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="triage/triage-team/">Triage Team</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="triage/triage-team/#becoming-a-member-of-the-python-triage-team">Becoming a member of the Python triage team</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="documentation/">Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="documentation/start-documenting/">Getting started</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="documentation/start-documenting/#introduction">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="documentation/start-documenting/#building-the-documentation">Building the documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="documentation/help-documenting/">Helping with documentation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="documentation/help-documenting/#python-documentation">Python documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="documentation/help-documenting/#helping-with-documentation-issues">Helping with documentation issues</a></li>
+<li class="toctree-l3"><a class="reference internal" href="documentation/help-documenting/#translating">Translating</a></li>
+<li class="toctree-l3"><a class="reference internal" href="documentation/help-documenting/#proofreading">Proofreading</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="documentation/style-guide/">Style guide</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="documentation/style-guide/#footnotes">Footnotes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="documentation/style-guide/#capitalization">Capitalization</a></li>
+<li class="toctree-l3"><a class="reference internal" href="documentation/style-guide/#specific-words">Specific words</a></li>
+<li class="toctree-l3"><a class="reference internal" href="documentation/style-guide/#use-simple-language">Use simple language</a></li>
+<li class="toctree-l3"><a class="reference internal" href="documentation/style-guide/#diataxis">Diátaxis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="documentation/style-guide/#links">Links</a></li>
+<li class="toctree-l3"><a class="reference internal" href="documentation/style-guide/#affirmative-tone">Affirmative tone</a></li>
+<li class="toctree-l3"><a class="reference internal" href="documentation/style-guide/#author-attribution">Author attribution</a></li>
+<li class="toctree-l3"><a class="reference internal" href="documentation/style-guide/#pronunciation-of-dunder-names">Pronunciation of dunder names</a></li>
+<li class="toctree-l3"><a class="reference internal" href="documentation/style-guide/#economy-of-expression">Economy of expression</a></li>
+<li class="toctree-l3"><a class="reference internal" href="documentation/style-guide/#security-considerations-and-other-concerns">Security considerations (and other concerns)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="documentation/style-guide/#code-examples">Code examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="documentation/style-guide/#code-equivalents">Code equivalents</a></li>
+<li class="toctree-l3"><a class="reference internal" href="documentation/style-guide/#audience">Audience</a></li>
+<li class="toctree-l3"><a class="reference internal" href="documentation/style-guide/#function-signatures">Function signatures</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="documentation/markup/">reStructuredText markup</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="documentation/markup/#quick-reference">Quick reference</a></li>
+<li class="toctree-l3"><a class="reference internal" href="documentation/markup/#restructuredtext-primer">reStructuredText primer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="documentation/markup/#typographic-conventions">Typographic conventions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="documentation/markup/#additional-markup-constructs">Additional markup constructs</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="documentation/translations/">Translations</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="documentation/translations/translating/">Translating</a></li>
+<li class="toctree-l3"><a class="reference internal" href="documentation/translations/coordinating/">Coordinating</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="documentation/devguide/">Helping with the Developer’s Guide</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="documentation/devguide/#developer-s-guide-workflow">Developer’s Guide workflow</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="testing/">Testing and buildbots</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="testing/run-write-tests/">Running and writing tests</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="testing/run-write-tests/#running">Running</a></li>
+<li class="toctree-l3"><a class="reference internal" href="testing/run-write-tests/#writing">Writing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="testing/run-write-tests/#benchmarks">Benchmarks</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="testing/silence-warnings/">Silence warnings from the test suite</a></li>
+<li class="toctree-l2"><a class="reference internal" href="testing/coverage/">Increase test coverage</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="testing/coverage/#common-gotchas">Common gotchas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="testing/coverage/#measuring-coverage">Measuring coverage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="testing/coverage/#filing-the-issue">Filing the issue</a></li>
+<li class="toctree-l3"><a class="reference internal" href="testing/coverage/#measuring-coverage-of-c-code-with-gcov-and-lcov">Measuring coverage of C code with gcov and lcov</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="testing/buildbots/">Working with buildbots</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="testing/buildbots/#in-case-of-trouble">In case of trouble</a></li>
+<li class="toctree-l3"><a class="reference internal" href="testing/buildbots/#buildbot-failures-on-pull-requests">Buildbot failures on pull requests</a></li>
+<li class="toctree-l3"><a class="reference internal" href="testing/buildbots/#triggering-on-pull-requests">Triggering on pull requests</a></li>
+<li class="toctree-l3"><a class="reference internal" href="testing/buildbots/#checking-results-of-automatic-builds">Checking results of automatic builds</a></li>
+<li class="toctree-l3"><a class="reference internal" href="testing/buildbots/#stability">Stability</a></li>
+<li class="toctree-l3"><a class="reference internal" href="testing/buildbots/#flags-dependent-failures">Flags-dependent failures</a></li>
+<li class="toctree-l3"><a class="reference internal" href="testing/buildbots/#ordering-dependent-failures">Ordering-dependent failures</a></li>
+<li class="toctree-l3"><a class="reference internal" href="testing/buildbots/#transient-failures">Transient failures</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="testing/new-buildbot-worker/">New buildbot workers</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="testing/new-buildbot-worker/#preparing-for-buildbot-worker-setup">Preparing for buildbot worker setup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="testing/new-buildbot-worker/#setting-up-the-buildbot-worker">Setting up the buildbot worker</a></li>
+<li class="toctree-l3"><a class="reference internal" href="testing/new-buildbot-worker/#buildbot-worker-operation">Buildbot worker operation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="testing/new-buildbot-worker/#required-ports">Required ports</a></li>
+<li class="toctree-l3"><a class="reference internal" href="testing/new-buildbot-worker/#required-resources">Required resources</a></li>
+<li class="toctree-l3"><a class="reference internal" href="testing/new-buildbot-worker/#security-considerations">Security considerations</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="development-tools/">Development tools</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="development-tools/clinic/">Argument Clinic</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="development-tools/clinic/#background">Background</a></li>
+<li class="toctree-l3"><a class="reference internal" href="development-tools/clinic/#reference">Reference</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="development-tools/gdb/">GDB support</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="development-tools/gdb/#page-moved">Page moved</a></li>
+<li class="toctree-l3"><a class="reference internal" href="development-tools/gdb/#cpython-tips">CPython tips</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="development-tools/clang/">Dynamic analysis with Clang</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="development-tools/clang/#what-is-clang">What is Clang?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="development-tools/clang/#what-are-sanitizers">What are sanitizers?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="development-tools/clang/#clang-llvm-setup">Clang/LLVM setup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="development-tools/clang/#python-build-setup">Python build setup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="development-tools/clang/#analyzing-the-output">Analyzing the output</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="development-tools/warnings/">Tools for tracking compiler warnings</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="development-tools/warnings/#what-to-do-if-a-warning-check-fails-github-ci">What to do if a warning check fails GitHub CI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="development-tools/warnings/#updating-the-warning-ignore-file">Updating the warning ignore file</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="core-team/">Core team</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="core-team/responsibilities/">Responsibilities</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="core-team/responsibilities/#communication-channels-and-bug-notifications">Communication channels and bug notifications</a></li>
+<li class="toctree-l3"><a class="reference internal" href="core-team/responsibilities/#sign-a-contributor-agreement">Sign a contributor agreement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="core-team/responsibilities/#pull-request-merging">Pull request merging</a></li>
+<li class="toctree-l3"><a class="reference internal" href="core-team/responsibilities/#expectations">Expectations</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="core-team/committing/">Accepting pull requests</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="core-team/committing/#assessing-a-pull-request">Assessing a pull request</a></li>
+<li class="toctree-l3"><a class="reference internal" href="core-team/committing/#updating-news-and-what-s-new-in-python">Updating NEWS and What’s New in Python</a></li>
+<li class="toctree-l3"><a class="reference internal" href="core-team/committing/#working-with-git">Working with Git</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="core-team/experts/">Experts index</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="core-team/experts/#stdlib">Stdlib</a></li>
+<li class="toctree-l3"><a class="reference internal" href="core-team/experts/#tools">Tools</a></li>
+<li class="toctree-l3"><a class="reference internal" href="core-team/experts/#platforms">Platforms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="core-team/experts/#miscellaneous">Miscellaneous</a></li>
+<li class="toctree-l3"><a class="reference internal" href="core-team/experts/#documentation-translations">Documentation translations</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="core-team/team-log/">Team log</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="core-team/team-log/#procedure-for-granting-or-dropping-access">Procedure for granting or dropping access</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="core-team/motivations/">Motivations and affiliations</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="core-team/motivations/#published-entries">Published entries</a></li>
+<li class="toctree-l3"><a class="reference internal" href="core-team/motivations/#goals-of-this-page">Goals of this page</a></li>
+<li class="toctree-l3"><a class="reference internal" href="core-team/motivations/#limitations-on-scope">Limitations on scope</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="core-team/join-team/">How to join the core team</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="core-team/join-team/#what-it-takes">What it takes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="core-team/join-team/#gaining-commit-privileges">Gaining commit privileges</a></li>
+<li class="toctree-l3"><a class="reference internal" href="core-team/join-team/#poll-template">Poll template</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="core-team/memorialization/">Memorialization</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="core-team/memorialization/#rationale">Rationale</a></li>
+<li class="toctree-l3"><a class="reference internal" href="core-team/memorialization/#the-process">The process</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="internals/">CPython’s internals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="versions/">Status of Python versions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="versions/#supported-versions">Supported versions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="versions/#unsupported-versions">Unsupported versions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="versions/#full-chart">Full chart</a></li>
+<li class="toctree-l2"><a class="reference internal" href="versions/#status-key">Status key</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="contrib/">Python Contributor’s Guide (draft)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="contrib/#using-this-guide">Using this guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contrib/#contents">Contents</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="contrib/contrib-plan/">[Plan for the Contributor’s Guide]</a></li>
+<li class="toctree-l3"><a class="reference internal" href="contrib/intro/">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="contrib/project/">The CPython project</a></li>
+<li class="toctree-l3"><a class="reference internal" href="contrib/triage/">Issues and triaging</a></li>
+<li class="toctree-l3"><a class="reference internal" href="contrib/doc/">Documentation contributions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="contrib/code/">Code contributions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="contrib/core-team/">Core team</a></li>
+<li class="toctree-l3"><a class="reference internal" href="contrib/user-success/">Accessibility, design, and user success</a></li>
+<li class="toctree-l3"><a class="reference internal" href="contrib/security/">Security and infrastructure contributions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="contrib/workflows/">Workflows</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+</section>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="getting-started/">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">Getting started</div>
+              </div>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+            </a>
+          
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2011 Python Software Foundation
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Python Developer’s Guide</a><ul>
+<li><a class="reference internal" href="#quick-reference">Quick reference</a></li>
+<li><a class="reference internal" href="#quick-links">Quick links</a></li>
+<li><a class="reference internal" href="#contributing">Contributing</a></li>
+<li><a class="reference internal" href="#proposing-changes-to-python-itself">Proposing changes to Python itself</a></li>
+<li><a class="reference internal" href="#other-interpreter-implementations">Other interpreter implementations</a></li>
+<li><a class="reference internal" href="#key-resources">Key resources</a></li>
+<li><a class="reference internal" href="#additional-resources">Additional resources</a></li>
+<li><a class="reference internal" href="#code-of-conduct">Code of conduct</a></li>
+<li><a class="reference internal" href="#status-of-python-branches">Status of Python branches</a></li>
+<li><a class="reference internal" href="#full-table-of-contents">Full table of contents</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script src="_static/documentation_options.js?v=187304be"></script>
+    <script src="_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="_static/scripts/furo.js?v=46bd48cc"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=c136e461"></script>
+    <script src="_static/tabs.js?v=3ee01567"></script>
+    <script src="_static/activate_tab.js?v=3ac9c400"></script>
+    </body>
+</html>
